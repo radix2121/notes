@@ -8,7 +8,6 @@ import { Amplify } from 'aws-amplify';
 import config from './config';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
 Amplify.configure({
   Auth: {
     mandatorySignIn: true,
