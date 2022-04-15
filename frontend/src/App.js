@@ -41,16 +41,21 @@ function App() {
     !isAuthenticating && (
       <div className="App container py-3">
         <Navbar collapseOnSelect bg="light" expand="md" className="mb-3">
-        <LinkContainer to="/">
-          <Navbar.Brand className="font-weight-bold text-muted">
-            Scratch
-          </Navbar.Brand>
-        </LinkContainer>
+          <LinkContainer to="/">
+            <Navbar.Brand className="font-weight-bold text-muted">
+              Scratch
+            </Navbar.Brand>
+          </LinkContainer>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
-            <Nav>
+            <Nav activeKey={window.location.pathname}>
               {isAuthenticated ? (
-                <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+                <>
+                  <LinkContainer to="/settings">
+                    <Nav.Link>Settings</Nav.Link>
+                  </LinkContainer>
+                  <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+                </>
               ) : (
                 <>
                   <LinkContainer to="/signup">
